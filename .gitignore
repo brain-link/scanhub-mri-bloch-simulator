@@ -1,0 +1,6 @@
+/scanhub-mri-device-simulator.log
+/*.user
+/*.log
+/tmp
+.venv
+__pycache__
