@@ -249,7 +249,13 @@ ApplicationWindow {
                 text: qsTr("K-Space Parameter")
             }
             TabButton {
-                text: qsTr("ScanHub Connection")
+                text: qsTr("Sequence")
+            }
+            TabButton {
+                text: qsTr("Scanner")
+            }
+            TabButton {
+                text: qsTr("Phantom")
             }
         }
 
@@ -266,10 +272,226 @@ ApplicationWindow {
             KSpaceParameterView {
                 id: kspaceParameterTab
             }
-
             Item {
-                id: cloudConnectionTab
+                id: sequenceTab
+            }
+            Item {
+                id: scannerTab
 
+
+
+                Flickable {
+                    id: flickable_controls
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    anchors.top: parent.top
+                    contentHeight: root.implicitHeight
+                    clip: true
+
+                    Pane {
+                        id: root
+                        anchors.fill: parent
+
+                        GridLayout {
+                            id: grid
+                            anchors.margins: 10
+
+                            columns: 3
+
+                            // B0
+                            Label {
+                                text: qsTr("B0:")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            TextField {
+                                id: val_B0
+                                focus: true
+                                Layout.fillWidth: true
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            Label {
+                                text: qsTr("[T] main magnetic field")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            // B1
+                            Label {
+                                text: qsTr("B1:")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            TextField {
+                                id: val_B1
+                                Layout.fillWidth: true
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            Label {
+                                text: qsTr("[T] maximum RF amplitude")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            // Gmax
+                            Label {
+                                text: qsTr("Gmax:")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            TextField {
+                                id: val_Gmax
+                                Layout.fillWidth: true
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            Label {
+                                text: qsTr("[T/m] maximum Gradient")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            // Smax
+                            Label {
+                                text: qsTr("Smax:")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            TextField {
+                                id: val_Smax
+                                Layout.fillWidth: true
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            Label {
+                                text: qsTr("[mT/m/ms] maximum slew-rate")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            // ADC_Δt
+                            Label {
+                                text: qsTr("ADC_Δt:")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            TextField {
+                                id: val_T_ADC
+                                Layout.fillWidth: true
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            Label {
+                                text: qsTr("[s] ADC raster time")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            // seq_Δt
+                            Label {
+                                text: qsTr("seq_Δt:")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            TextField {
+                                id: val_T_seq
+                                Layout.fillWidth: true
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            Label {
+                                text: qsTr("[s] sequence-block raster time")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            // GR_Δt
+                            Label {
+                                text: qsTr("GR_Δt:")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            TextField {
+                                id: val_T_GR
+                                Layout.fillWidth: true
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            Label {
+                                text: qsTr("[s] gradient raster time")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            // RF_Δt
+                            Label {
+                                text: qsTr("RF_Δt:")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            TextField {
+                                id: val_T_RF
+                                Layout.fillWidth: true
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            Label {
+                                text: qsTr("[s] RF raster time")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            // RF_ring_down_T
+                            Label {
+                                text: qsTr("RF_ring_down_T:")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            TextField {
+                                id: val_T_RF_ring_down
+                                Layout.fillWidth: true
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            Label {
+                                text: qsTr("[s] RF ring down time")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            // RF_dead_time_T
+                            Label {
+                                text: qsTr("RF_dead_time_T:")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            TextField {
+                                id: val_T_RF_dead_time
+                                Layout.fillWidth: true
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            Label {
+                                text: qsTr("[s] RF dead time")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            // ADC_dead_time_T
+                            Label {
+                                text: qsTr("RF_dead_time_T:")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            TextField {
+                                id: val_T_ADC_dead_time
+                                Layout.fillWidth: true
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+
+                            Label {
+                                text: qsTr("[s] ADC dead time")
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
+                            }
+                        }
+                    }
+                }
+            }
+            Item {
+                id: phantomTab
             }
         }
     }
