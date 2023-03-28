@@ -289,6 +289,8 @@ ApplicationWindow {
                     contentHeight: root.implicitHeight
                     clip: true
 
+                    property real displayValue: 1.2
+
                     Pane {
                         id: root
                         anchors.fill: parent
@@ -307,6 +309,8 @@ ApplicationWindow {
 
                             TextField {
                                 id: val_B0
+                                text: "1.5"
+                                validator: RegularExpressionValidator { regularExpression: /[+-]?(\d+(\.\d+)?|\.\d+)([eE][+-]?\d+)?/ }
                                 focus: true
                                 Layout.fillWidth: true
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
@@ -325,6 +329,8 @@ ApplicationWindow {
 
                             TextField {
                                 id: val_B1
+                                text: "10e-6"
+                                validator: RegularExpressionValidator { regularExpression: /[+-]?(\d+(\.\d+)?|\.\d+)([eE][+-]?\d+)?/ }
                                 Layout.fillWidth: true
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
                             }
@@ -342,6 +348,8 @@ ApplicationWindow {
 
                             TextField {
                                 id: val_Gmax
+                                text: "60e-3"
+                                validator: RegularExpressionValidator { regularExpression: /[+-]?(\d+(\.\d+)?|\.\d+)([eE][+-]?\d+)?/ }
                                 Layout.fillWidth: true
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
                             }
@@ -359,6 +367,8 @@ ApplicationWindow {
 
                             TextField {
                                 id: val_Smax
+                                text: "500"
+                                validator: RegularExpressionValidator { regularExpression: /[+-]?(\d+(\.\d+)?|\.\d+)([eE][+-]?\d+)?/ }
                                 Layout.fillWidth: true
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
                             }
@@ -376,6 +386,8 @@ ApplicationWindow {
 
                             TextField {
                                 id: val_T_ADC
+                                text: "2e-6"
+                                validator: RegularExpressionValidator { regularExpression: /[+-]?(\d+(\.\d+)?|\.\d+)([eE][+-]?\d+)?/ }
                                 Layout.fillWidth: true
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
                             }
@@ -393,6 +405,8 @@ ApplicationWindow {
 
                             TextField {
                                 id: val_T_seq
+                                text: "1e-5"
+                                validator: RegularExpressionValidator { regularExpression: /[+-]?(\d+(\.\d+)?|\.\d+)([eE][+-]?\d+)?/ }
                                 Layout.fillWidth: true
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
                             }
@@ -410,6 +424,8 @@ ApplicationWindow {
 
                             TextField {
                                 id: val_T_GR
+                                text: "1e-5"
+                                validator: RegularExpressionValidator { regularExpression: /[+-]?(\d+(\.\d+)?|\.\d+)([eE][+-]?\d+)?/ }
                                 Layout.fillWidth: true
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
                             }
@@ -427,6 +443,8 @@ ApplicationWindow {
 
                             TextField {
                                 id: val_T_RF
+                                text: "1e-6"
+                                validator: RegularExpressionValidator { regularExpression: /[+-]?(\d+(\.\d+)?|\.\d+)([eE][+-]?\d+)?/ }
                                 Layout.fillWidth: true
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
                             }
@@ -444,6 +462,8 @@ ApplicationWindow {
 
                             TextField {
                                 id: val_T_RF_ring_down
+                                text: "20e-6"
+                                validator: RegularExpressionValidator { regularExpression: /[+-]?(\d+(\.\d+)?|\.\d+)([eE][+-]?\d+)?/ }
                                 Layout.fillWidth: true
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
                             }
@@ -461,6 +481,8 @@ ApplicationWindow {
 
                             TextField {
                                 id: val_T_RF_dead_time
+                                text: "100e-6"
+                                validator: RegularExpressionValidator { regularExpression: /[+-]?(\d+(\.\d+)?|\.\d+)([eE][+-]?\d+)?/ }
                                 Layout.fillWidth: true
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
                             }
@@ -478,6 +500,8 @@ ApplicationWindow {
 
                             TextField {
                                 id: val_T_ADC_dead_time
+                                text: "10e-6"
+                                validator: RegularExpressionValidator { regularExpression: /[+-]?(\d+(\.\d+)?|\.\d+)([eE][+-]?\d+)?/ }
                                 Layout.fillWidth: true
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignBaseline
                             }
