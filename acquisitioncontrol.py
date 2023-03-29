@@ -24,6 +24,11 @@ from PySide6.QtWidgets import (
         QVBoxLayout
 )
 
+import julia
+julia.install()               # install PyCall.jl etc.
+from julia import KomaMRI   # import Koma.jl
+
+
 class AcquisitionControl(QObject):
     """A class which contains methods to communicate with the ScanHub
 
@@ -95,8 +100,19 @@ class AcquisitionControl(QObject):
         match acquisition_event.command_id:
             case AcquisitionCommand.start:
                 print(AcquisitionCommand.start)
-                self._acquisition_queue.put(acquisition_event)
-                self.signalStartMeasurement.emit()
+                # self._acquisition_queue.put(acquisition_event)
+                # self.signalStartMeasurement.emit()
+
+                print(f'Bloch Simulation Started')
+
+                seq = KomaMRI.read_seq("C:/Git/BRAIN-LINK/sequences/epi_se.seq")
+                sys = KomaMRI.Scanner() # default scanner # tbd : get scanner from qml
+                obj = KomaMRI.brain_phantom2D()
+
+                raw = KomaMRI.simulate(obj, seq, sys)
+                KomaMRI.plot_signal(raw)
+
+
                 return True
             case AcquisitionCommand.stop:
                 print(AcquisitionCommand.stop)
